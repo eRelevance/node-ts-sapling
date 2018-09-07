@@ -14,12 +14,15 @@
     "url": "https://github.com/eRelevance/CHANGEME/issues"
   },
   "scripts": {
-    "prepare": "pretty-quick --stage && tsc",
-    "pretest": "pretty-quick --stage && tsc && tsc -p spec/tsconfig.json",
+    "clean": "rm -rf dist && rm -rf out",
+    "build": "tsc",
+    "prepare": "tsc",
+    "pretest": "tsc && tsc -p spec/tsconfig.json",
     "test": "jasmine",
     "test:integration": "npm run pretest && jasmine --config=spec/support/jasmine-integration.json",
     "posttest": "npm run lint",
-    "lint": "tslint -c tslint.json --project tsconfig.json && tslint -c tslint.json --project spec/tsconfig.json"
+    "lint": "tslint -c tslint.json --project tsconfig.json && tslint -c tslint.json --project spec/tsconfig.json",
+    "pretty": "pretty-quick --stage"
   },
   "dependencies": {},
   "devDependencies": {
@@ -29,6 +32,7 @@
     "jasmine-spec-reporter": "4.2.1",
     "prettier": "1.13.7",
     "pretty-quick": "1.6.0",
+    "ts-node": "7.0.1",
     "tslint": "5.11.0",
     "tslint-config-airbnb": "5.9.2",
     "tslint-react": "3.6.0",
